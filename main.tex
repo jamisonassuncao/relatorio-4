@@ -1,0 +1,36 @@
+\documentclass[relatorio,oneside]{iagtese}	       
+
+\usepackage{hyperref} 	% used to include url's 
+\urlstyle{same}			% used to make url fonts the same as in the normal text
+\usepackage{pdfpages} 	% used to include PDFs
+
+\renewcommand{\thefootnote}{\arabic{footnote}}
+\newcommand{\doublequotes}[1]{``#1''}
+\newcommand{\singlequotes}[1]{`#1}
+
+\usepackage{subfig}
+% \usepackage{subcaption}
+% \usepackage{subcaption}
+
+% \usepackage[utf8]{inputenc}
+
+\begin{document}
+
+	\input{tex/capa.tex} 
+	\titulo
+	\assinatura
+	\tableofcontents
+	
+	\inputencoding{utf8}
+	\input{tex/prefacio.tex}
+	\inputencoding{latin1}
+	\input{tex/creditos.tex}
+	\inputencoding{utf8}
+	\input{tex/introducao.tex}
+	\input{tex/metodos.tex}
+	\input{tex/simulacoes.tex}
+	\input{tex/artigo.tex}
+	\input{tex/cronograma.tex}
+	\bibliography{tex/bibliografia}
+
+\end{document}
