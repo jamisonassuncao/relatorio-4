@@ -71,11 +71,46 @@ Já a componente rúptil proposta no trabalho de \citet{strak2021thermo} vale $\
 
 \section{Discussão}
 
-Para prosseguir com a discussão de algumas simulações, primeiro mostro um modelo de referência cujos parâmetros de simulação estão contidos na tabela \ref{table:referencia}. Este modelo de referência é ponto de partida para entender os parâmetros simulados e é partir dele que mudanças na abordagem de simulação serão feitas.
+Para prosseguir com a discussão de algumas simulações, um modelo de referência (MR) será discutido e seus parâmetros de simulação são apresentados na tabela \ref{table:referencia}. Este modelo é ponto de partida para entender os parâmetros simulados e também as mudanças na abordagem de simulações futuras. 
 
 \input{tex/parametros-modelo} 
 
-O resultado da simulação do modelo de referência produziu as configurações observadas nas figuras a seguir.
+Vale ressaltar que o MR não apresenta geometria e propriedades físicas usuais e seus resultados têm teor de investigação multiparamétrica. Valores de espessura crustal oceânica e respectiva densidade são produtos de testes simplificados. Esse modelo surge baseado nas simulações de \citet{strak2021thermo} e tenta reproduzir as feições semelhantes àquelas encontradas pelos autores. Dezenas de outros cenários foram testados anteriormente, porém o MR foi o cenários que permitiu de maneira mais consistente a ocorrência de subdução. 
+
+Outras simulações utilizaram abordagens diferentes para simular subdução e não serão mostradas aqui. Para mencionar um conjunto dessas simulações, uma litosfera continental fragilizada de $50$ km de largura foi colocada no contato com a litosfera oceânica em subdução, criando uma zona lubrificante. A utilização de uma zona lubrificante permitiu subdução consistentemente, no entanto a abordagem de crosta oceânica fragilizada é mais coerente e, sobretudo, simples.
+
+O resultado da simulação do modelo de referência produziu as configurações observadas nas figuras \ref{fig:inicio-referencia} e \ref{fig:fim-referencia} a seguir.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6 \textwidth]{fig/placeholder.jpeg}
+    \caption{Configuração inicial do modelo de referência.}
+    \label{fig:inicio-referencia}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6 \textwidth]{fig/placeholder.jpeg}
+    \caption{Configuração modelo de referência após XX Ma.}
+    \label{fig:fim-referencia}
+\end{figure}
+
+[WIP] Fragilização da crosta oceânica permite subdução com facilidade. Trajetória da placa descendente começa a reproduzir \citet{strak2021thermo}. 
+
+[WIP] Modelos cuja crosta oceânica era muito mais fina não apresentaram subdução. Modelos cuja crosta oceânica apresentava densidade menor não apresentaram subdução. Modelos usando modelo de resfriamento de placa teoricamente teriam \textit{ridge-push} ao longo de uma região maior, mas não ajudaram muito (por enquanto).
+
+[WIP] strain seed na crosta oceânica subduzida (COS) e na crosta oceânica não-subduzida (CONS). Fator composicional da COS e da CONS é 0.01.
+
+[MODELO COM APENAS A REGIÃO SUBDUZIDA FRAGILIZADA]
+
+[WIP] strain seed apenas na COS. Fator composicional da COS é 0.01 e da CONS é 1.0.
+
+[MODELO COM FATOR COMPOSICIONAL DIFERENTE]
+
+[WIP] strain seed na COS e na CONS. Fator composicional da COS é 0.01 e da CONS é 1.0.
+
+
+
 
 
 
