@@ -2,7 +2,7 @@
 \chapter{Simulações 2D}
 \label{simulacoes}
 
-Para dar continuidade às simulações 2D introduzidas no relatório anterior, centenas de simulações foram realizadas para estudar a subdução de litosfera oceânica sob litosfera continental. O objetivo é realizar uma investigação paramétrica para quantificar os fatores que contribuem para a dinâmica da subducção, entender como o código \textit{Mandyoc} \citep{sacek2022mandyoc} consegue reproduzir os cenários, comparar os resultados aqueles do trabalho de \citet{strak2021thermo}, e estudar um cenário de subdução análogo aquele observado na América do Sul onde a placa de Nazca subduz sob a placa da América do Sul.
+Para dar continuidade às simulações 2D introduzidas no relatório anterior, centenas de simulações foram realizadas para estudar subdução e três simulações chaves serão apresentadas neste capítulo. O objetivo é realizar uma investigação paramétrica para quantificar os fatores que contribuem para a dinâmica da subducção, entender como o código \textit{Mandyoc} \citep{sacek2022mandyoc} consegue reproduzir os cenários, comparar os resultados aqueles do trabalho de \citet{strak2021thermo}, e estudar um cenário de subdução análogo aquele observado na América do Sul, onde a placa de Nazca subduz sob a placa da América do Sul.
 
 % O primeiro desses parâmetros a serem investigados é o papel da reologia do manto superior no processo de subducção, que está diretamente associado à velocidade de subducção e sua variação no tempo \citep{strak2021thermo}.
 
@@ -23,7 +23,7 @@ Para dar continuidade às simulações 2D introduzidas no relatório anterior, c
 
 % \input{tex/parametros-modelo} 
 
-Para realizar as simulações, eu escrevi um \textit{Notebook} utilizando \textit{JupyterLab} (\url{https://jupyter.org}) para construir um modelo inicial que contém diferentes unidades litológicas, cada uma com um conjunto de propriedades físicas. Como ponto de partida, o \textit{script} constrói limites litológicos, calcula um campo de temperatura inicial e constrói um arquivo de parâmetros \textit{param.txt} para ser utilizados pelo código \textit{Mandyoc}.
+Para realizar as simulações, eu escrevi um \textit{Notebook} utilizando \textit{JupyterLab} (\url{https://jupyter.org}) para construir um modelo inicial que contém diferentes unidades litológicas, cada uma com um conjunto de propriedades físicas. Como ponto de partida, o \textit{script} constrói limites litológicos, calcula um campo de temperatura inicial e constrói um arquivo de parâmetros \textit{param.txt} para ser utilizados pelo código \textit{Mandyoc}. As simulações foram feitas no Cluster Aguia4 (\url{https://hpc.usp.br}).
 
 O \textit{Notebook} está disponível na minha página do \textit{GitHub} no \textit{link} \url{https://github.com/jamisonassuncao/mandyoc-scripts}. A página também contém outros dois \textit{scripts} que escrevi, um para visualização dos arquivos do \textit{Mandyoc} e outro, em desenvolvimento, para utilizar os modelos LITHO1.0 \citep{pasyanos2014litho1} e Slab2 \citep{hayes2018slab2} para espessuras crustal e litosférica de toda América do Sul.
 
@@ -31,12 +31,12 @@ O \textit{Notebook} está disponível na minha página do \textit{GitHub} no \te
 
 \section{Geometria}
 
-A geometria das unidades litológicas é simplificada e contém uma litosfera oceânica à esquerda de uma litosfera continental, cada uma com duas camadas, como ilustra a figura \ref{fig:geometria-inicial}. A camada superior de cada uma representa a crosta e a camada inferior representa o manto litosférico. Acima de ambas, uma camada de ar de $40$ km também foi definida.
+A geometria das unidades litológicas é simplificada e contém uma litosfera oceânica à esquerda de uma litosfera continental, cada uma com duas camadas, como esquematiza a figura \ref{fig:geometria-inicial}. A camada superior de cada uma representa a crosta e a camada inferior representa o manto litosférico. Acima de ambas, uma camada de ar de $40$ km também foi definida.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.6 \textwidth]{fig/placeholder.jpeg}
-    \caption{Geometria inicial das diferentes unidades litológicas utilizadas para simulação.}
+    \includegraphics[width=1.0 \textwidth]{fig/geometria-inicial.png}
+    \caption{Exemplo de geometria inicial das diferentes unidades litológicas utilizadas para simulação. A camada branca representa o ar.}
     \label{fig:geometria-inicial}
 \end{figure}
 
@@ -48,7 +48,7 @@ A abordagem utilizada para a execução da simulação considerou que a placa oc
 
 \section{Estrutura térmica}
 
-A configuração térmica inicial é bastante simples ao passo que a temperatura é $0^{\circ}$C para toda a camada de ar, varia linearmente de $0$ºC na superfície até $1300$ºC no limite litosfera-astenosfera (\textit{Lithosphere-Astenosphere Boundary}, LAB). Para profundidades maiores do que a LAB, a temperatura considerada é a temperatura adiabática tal como na equação \ref{eq:adiabatic-temp}.
+A configuração térmica inicial é bastante simples ao passo que a temperatura é $0^{\circ}$C para toda a camada de ar, varia linearmente de $0$ºC na superfície até $1300$ºC no limite litosfera-astenosfera (\textit{Lithosphere-Astenosphere Boundary}, LAB). Para profundidades maiores do que a LAB, a temperatura considerada é a temperatura adiabática tal como na equação \ref{eq:adiabatic-temp} \citep{turcotte2002geodynamics}.
 
 \begin{equation}{}\label{eq:adiabatic-temp}
   T = T_0 \exp{\frac{\alpha g z}{C_p}}
@@ -79,33 +79,69 @@ Vale ressaltar que o MR não apresenta geometria e propriedades físicas usuais 
 
 Outras simulações utilizaram abordagens diferentes para simular subdução e não serão mostradas aqui. Para mencionar um conjunto dessas simulações, uma litosfera continental fragilizada de $50$ km de largura foi colocada no contato com a litosfera oceânica em subdução, criando uma zona lubrificante. A utilização de uma zona lubrificante permitiu subdução consistentemente, no entanto a abordagem de crosta oceânica fragilizada é mais coerente e, sobretudo, simples.
 
-O resultado da simulação do modelo de referência produziu as configurações observadas nas figuras \ref{fig:inicio-referencia} e \ref{fig:fim-referencia} a seguir.
+O resultado da simulação do modelo de referência produziu as configurações observadas nas figuras \ref{fig:strak_32-00} e \ref{fig:strak_32-11} a seguir.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.6 \textwidth]{fig/placeholder.jpeg}
-    \caption{Configuração inicial do modelo de referência.}
+    \includegraphics[trim={5cm 14cm 2cm 12cm}, clip, width=1.0 \textwidth]{fig/strak_32-00.png}
+    \caption{Configuração inicial do Modelo de Referência. De cima para baixo, as figuras representam a topografia, campo de viscosidade, campo de velocidade sobreposto ao campo de temperatura, e campo de taxa de deformação.}
+    \label{fig:strak_32-00}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[trim={5cm 14cm 2cm 12cm}, clip, width=1.0 \textwidth]{fig/strak_32-11.png}
+    \caption{Configuração do Modelo de Referência após $9.96$ Ma. De cima para baixo, as figuras representam a topografia, campo de viscosidade, campo de velocidade sobreposto ao campo de temperatura, e campo de taxa de deformação.}
+    \label{fig:strak_32-11}
+\end{figure}
+
+Para o MR, a subdução ocorre sem haver acoplamento da litosfera oceânica com a litosfera continental. Para que ocorra subdução, porém, outras simulações mostraram que há necessidade de uma crosta oceânica fragilizada e menos viscosa. \citet{strak2021thermo} utilizam três camadas para a litosfera oceânica, duas para a crosta e uma para o manto litosférico. A abordagem do MR é mais simples, utilizando apenas uma camada para a crosta e uma para o manto litosférico e, no entanto, também utiliza uma crosta superior relativamente menos viscosa. O resultado final, após $9.96$ Ma, apresenta uma placa descendente coesa em profundidade e com uma trajetória que indica maiores velocidades no meio da placa em comparação com a sua extremidade direita, causando dobramento expressivo da litosfera em subdução.
+
+Ocorre também o avanço da litosfera continental da direita para a esquerda ao longo da simulação por cerca de $500$ km. A porção cratônica se mantém estável durante a simulação e os esforços diminuem na porção de arco continental.
+
+Como o modelo não está em equilíbrio isostático desde o início da simulação, ocorre uma subsidência da porção oceânica e um soerguimento da porção continental, com a posição da trincheira bem definida, porém sem orogenia da porção esquerda da litosfera continental.
+
+O MR, no entanto, utiliza uma crosta oceânica bastante densa e espessa, e simulações posteriores com crosta oceânica mais finas ($8$, $10$ e $15$ km) não apresentaram subdução. A suspeita inicial é de que a resolução do modelo não era suficiente para que as camadas tenham o comportamento reológico esperado, porém simulações posteriores não validaram essa hipótese. Uma abordagem usando um modelo de resfriamento de placa \citep{turcotte2002geodynamics} também foi testado para quantificar o efeito do \textit{ridge-push}, mas outros testes ainda precisam ser realizados.
+
+% [WIP] Modelos cuja crosta oceânica era muito mais fina não apresentaram subdução. Modelos cuja crosta oceânica apresentava densidade menor não apresentaram subdução. Modelos usando modelo de resfriamento de placa teoricamente teriam \textit{ridge-push} ao longo de uma região maior, mas não ajudaram muito (por enquanto).
+
+[WIP] strain seed na crosta oceânica subduzida (COS) e na crosta oceânica não-subduzida (CONS). Fator composicional da COS e da CONS é 0.01.
+
+
+Uma segunda simulação é mostrada 
+[MODELO COM APENAS A REGIÃO SUBDUZIDA FRAGILIZADA]
+
+\begin{figure}
+    \centering
+    \includegraphics[trim={5cm 14cm 2cm 12cm}, clip, width=1.0 \textwidth]{fig/strak_32-00.png}
+    \caption{Configuração inicial do Modelo de Referência.}
     \label{fig:inicio-referencia}
 \end{figure}
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.6 \textwidth]{fig/placeholder.jpeg}
-    \caption{Configuração modelo de referência após XX Ma.}
+    \includegraphics[trim={5cm 14cm 2cm 12cm}, clip, width=1.0 \textwidth]{fig/strak_32-11.png}
+    \caption{Configuração do Modelo de Referência após $9.96$ Ma.}
     \label{fig:fim-referencia}
 \end{figure}
-
-[WIP] Fragilização da crosta oceânica permite subdução com facilidade. Trajetória da placa descendente começa a reproduzir \citet{strak2021thermo}. 
-
-[WIP] Modelos cuja crosta oceânica era muito mais fina não apresentaram subdução. Modelos cuja crosta oceânica apresentava densidade menor não apresentaram subdução. Modelos usando modelo de resfriamento de placa teoricamente teriam \textit{ridge-push} ao longo de uma região maior, mas não ajudaram muito (por enquanto).
-
-[WIP] strain seed na crosta oceânica subduzida (COS) e na crosta oceânica não-subduzida (CONS). Fator composicional da COS e da CONS é 0.01.
-
-[MODELO COM APENAS A REGIÃO SUBDUZIDA FRAGILIZADA]
 
 [WIP] strain seed apenas na COS. Fator composicional da COS é 0.01 e da CONS é 1.0.
 
 [MODELO COM FATOR COMPOSICIONAL DIFERENTE]
+
+\begin{figure}
+    \centering
+    \includegraphics[trim={5cm 14cm 2cm 12cm}, clip, width=1.0 \textwidth]{fig/strak_32-00.png}
+    \caption{Configuração inicial do Modelo de Referência.}
+    \label{fig:inicio-referencia}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[trim={5cm 14cm 2cm 12cm}, clip, width=1.0 \textwidth]{fig/strak_32-11.png}
+    \caption{Configuração do Modelo de Referência após $9.96$ Ma.}
+    \label{fig:fim-referencia}
+\end{figure}
 
 [WIP] strain seed na COS e na CONS. Fator composicional da COS é 0.01 e da CONS é 1.0.
 

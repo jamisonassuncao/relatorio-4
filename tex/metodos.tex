@@ -108,14 +108,14 @@ Para calcular a tensão de ruptura $\tau_{yield}$ e determinar a componente dúc
 
 O código \textit{Mandyoc} também permite que o usuário escolha dentre vários modelos para representar a componente dúctil do modelo visco-plástico. O mais simples desses modelos é o isoviscoso, onde a componente $\eta_{visc}$ é constante para cada litologia.
 
-Um segundo modelo para a componente dúctil na equação \ref{viscosidade-efetiva} considera a aproximação de Frank-Kamenetskii \citep{moresisolomatov1998}, que utiliza uma expressão para a viscosidade $\eta_{visc}$ que é função do fator composicional $C$ e da temperatura $T$ tal como na equação \ref{frank-kamenetskii} a seguir.
+% Um segundo modelo para a componente dúctil na equação \ref{viscosidade-efetiva} considera a aproximação de Frank-Kamenetskii \citep{moresisolomatov1998}, que utiliza uma expressão para a viscosidade $\eta_{visc}$ que é função do fator composicional $C$ e da temperatura $T$ tal como na equação \ref{frank-kamenetskii} a seguir.
 
-\begin{equation}{\label{frank-kamenetskii}}
-    \eta_{visc}(T,C)=C\eta_{r}b^{*}\exp{-\gamma T}
-\end{equation}
-\noindent onde $C$ é um fator composicional, $\eta_{r}$ é a viscosidade de referência, $b^{*}$ e $\gamma= E_a/RTb^2$ são constantes onde, por sua vez, $E_a$ é a energia de ativação, $R$ é a constante universal dos gases, e $T_b$ é a temperatura basal.
+% \begin{equation}{\label{frank-kamenetskii}}
+%     \eta_{visc}(T,C)=C\eta_{r}b^{*}\exp{-\gamma T}
+% \end{equation}
+% \noindent onde $C$ é um fator composicional, $\eta_{r}$ é a viscosidade de referência, $b^{*}$ e $\gamma= E_a/RTb^2$ são constantes onde, por sua vez, $E_a$ é a energia de ativação, $R$ é a constante universal dos gases, e $T_b$ é a temperatura basal.
 
-A componente dúctil $\eta_{visc}$ também pode ser determinada usando uma lei de potência, onde a viscosidade é função do fator composicional $C$, da temperatura $T$ e da pressão $P$:
+Um segundo modelo para a componente dúctil na equação \ref{viscosidade-efetiva} considera uma lei de potência para a componente dúctil $\eta_{visc}$, onde a viscosidade é função do fator composicional $C$, da temperatura $T$ e da pressão $P$:
 
 \begin{equation}{\label{power-law}}
     \eta_{visc} = C A^{\frac{-1}{n}} \dot{\varepsilon}^{\frac{1-n}{n}} \exp{\frac{Q+V P}{nRT}}
